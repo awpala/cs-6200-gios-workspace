@@ -16,7 +16,7 @@
   // (optional) "sidecar" features
   "features": {
     // Oh My Zsh terminal pre-install & config
-    // Reference: https://github.com/devcontainers/features/blob/main/src/common-utils
+    // Reference: https://github.com/devcontainers/features/tree/main/src/common-utils
     "ghcr.io/devcontainers/features/common-utils:2": {
       "configureZshAsDefaultShell": true,
     },
