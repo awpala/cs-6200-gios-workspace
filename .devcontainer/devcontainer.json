@@ -1,5 +1,7 @@
 {
   "name": "CS6200 GIOS Development Environment",
+
+  // Docker container configs
   "image": "gtomscs6200/spr26-environment:latest",
   "remoteUser": "root",
   "runArgs": [
