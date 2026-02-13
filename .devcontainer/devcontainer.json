@@ -1,0 +1,59 @@
+{
+  "name": "CS6200 GIOS Development Environment",
+  "image": "gtomscs6200/spr26-environment:latest",
+  "remoteUser": "root",
+  "runArgs": [
+    // create named Docker container
+    "--name", "cs-6200-gios-dev-env",
+    // define container restart policy
+    "--restart", "unless-stopped",
+  ],
+
+  // bind mount local host-based workspace into container
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+  // (optional) "sidecar" features
+  "features": {
+    // Oh My Zsh terminal pre-install & config
+    // Reference: https://github.com/devcontainers/features/blob/main/src/common-utils
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true,
+    },
+    // Python runtime pre-install & config
+    // Reference: https://github.com/devcontainers/features/tree/main/src/python
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+
+  // VS Code customizations
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // C/C++ linting & intellisense configs
+        "C_Cpp.default.cStandard": "gnu17",
+        "C_Cpp.default.cppStandard": "gnu++17",
+        "C_Cpp.default.intelliSenseMode": "gcc-x64",
+        // disable AI features in workspace
+        "chat.disableAIFeatures": true,
+        "workbench.settings.showAISearchToggle": false,
+      },
+      "extensions": [
+        // C/C++ and related development tools
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "ms-vscode.makefile-tools",
+        // bash scripts
+        "mads-hartmann.bash-ide-vscode",
+        "rogalmic.bash-debug",
+        // disable (-) GitHub Copilot in workspace
+        "-github.copilot",
+        "-github.copilot-chat",
+        // optionally, add additional comma-separated VS Code extensions by ID here, if so desired
+        "yandeu.five-server",
+        "oderwat.indent-rainbow",
+        "mechatroner.rainbow-csv",
+        "gxl.git-graph-3",
+      ],
+    },
+  },
+}
