@@ -3,7 +3,7 @@
 ## Development Environment Launch Flow
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph Host[Local Host]
         H1[Project folder on host]
         H2[VS Code opens folder]
@@ -13,7 +13,7 @@ flowchart LR
     subgraph Startup[Docker and Dev Container Startup]
         D1[Docker Engine]
         D2[Create or start container<br/><code>cs-6200-gios-dev-env</code>]
-        D3[Base image<br/><code>gtomscs6200/<current-semester>-environment:latest</code>]
+        D3[Base image<br/><code>gtomscs6200/<...>-environment:latest</code>]
         D4[Container runtime options:<br/>restart <code>unless-stopped</code>,<br/>user <code>root</code>]
         D5[Bind mount host folder to<br/><code>/workspace</code>]
         D6[Install features<br/><code>common-utils</code> and <code>python</code>]
