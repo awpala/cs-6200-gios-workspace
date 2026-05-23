@@ -2,7 +2,7 @@
   "name": "CS6200 GIOS Development Environment",
 
   // Docker container configs
-  "image": "gtomscs6200/spr26-environment:latest",
+  "image": "gtomscs6200/sum26-environment:latest",
   "remoteUser": "root",
   "runArgs": [
     // create named Docker container
@@ -16,15 +16,15 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 
   // (optional) "sidecar" features
+  // Reference: https://containers.dev/features
   "features": {
-    // Oh My Zsh terminal pre-install & config
-    // Reference: https://github.com/devcontainers/features/tree/main/src/common-utils
     "ghcr.io/devcontainers/features/common-utils:2": {
-      "configureZshAsDefaultShell": true,
+      "installZsh": true,
+      "installOhMyZsh": true,
     },
-    // Python runtime pre-install & config
-    // Reference: https://github.com/devcontainers/features/tree/main/src/python
-    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "latest",
+    },
   },
 
   // VS Code customizations
