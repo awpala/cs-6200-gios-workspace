@@ -1,5 +1,18 @@
 # GIOS Projects Dev Container Workspace
 
+## Using the .devcontainer Workflow
+
+Use this workflow to develop inside the project container instead of your host environment, for example as follows:
+
+1. Open this repository folder in VS Code. (Or, equivalently, copy the contents of [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) to a target project directory on the host machine.)
+2. Ensure Docker is running on your host machine.
+3. Run the VS Code command `Dev Containers: Reopen in Container`.
+4. Wait for the container build/start sequence to finish.
+5. Confirm your terminal prompt is inside the container and your project is mounted at `/workspace`.
+6. Build and run your project tools from inside the container terminal.
+7. If configuration changes are made under `.devcontainer/`, run `Dev Containers: Rebuild Container`.
+8. If the window disconnects, use `Dev Containers: Reopen Folder Locally` to return to host mode or reopen in container again.
+
 ## Development Environment Launch Flow
 
 ```mermaid
