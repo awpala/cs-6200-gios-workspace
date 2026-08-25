@@ -1,11 +1,14 @@
 {
   "name": "CS6200 GIOS Development Environment",
 
-  // Docker container configs
-  "image": "gtomscs6200/sum26-environment:latest",
+  "image": "gtomscs6200/fall26-environment:latest",
+
+  // container configs
+  "containerUser": "root",
   "remoteUser": "root",
+  "shutdownAction": "stopContainer",
   "runArgs": [
-    // create named Docker container
+    // create named container
     "--name", "cs-6200-gios-dev-env",
     // define container restart policy
     "--restart", "unless-stopped",
@@ -19,9 +22,10 @@
   "mounts": [
     // pip
     "source=cs-6200-gios-dev-env-pip-cache,target=/root/.cache/pip,type=volume",
-    "source=cs-6200-gios-dev-env-pip-config,target=/root/.config/pip,type=volume",
     // gh (GitHub CLI)
     "source=cs-6200-gios-dev-env-gh-config,target=/root/.config/gh,type=volume",
+    // VS Code extensions
+    "source=cs-6200-gios-dev-env-vscode-ext-cache,target=/root/.vscode-server/extensionsCache,type=volume",
   ],
 
   // (optional) "sidecar" features
@@ -31,9 +35,6 @@
       "installZsh": true,
       "installOhMyZsh": true,
       "configureZshAsDefaultShell": true,
-    },
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "latest",
     },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "latest",
